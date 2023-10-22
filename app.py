@@ -13,6 +13,6 @@ from PIL import Image
 def generate_meme():
     img_file = request.files['img']
     img = Image.open(img_file.stream)
-    model = mobilenet.MobileNet(weights='imagenet', include_top=False) 
+    model = mobilenet.MobileNet(weights='imagenet', include_top=True) 
     return "Image received"
 
