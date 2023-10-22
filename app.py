@@ -5,7 +5,12 @@ CORS(app)
 
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
-    return 'Hello, World!'
+from flask import request
+from PIL import Image
+
+@app.route('/generate_meme', methods=['POST'])
+def generate_meme():
+    img_file = request.files['img']
+    img = Image.open(img_file.stream)
+    return "Image received"
 
